@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Drupal - Sur la sécurité</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Drupal</h1>
+                    <h3>Est-il</h3>
+                    <h3>Sécurisé ?</h3>
+                    <p>Retour sur le #Drupalgeddon et mise en perspective</p>
+				</section>
+
+				<section data-transition="cube">
+					<h2>#Drupalgeddon ?</h2>
+
+                    <ul>
+                        <li class="fragment">Le 15 octobre, le bulletin de sécurité <a href="https://www.drupal.org/SA-CORE-2014-005" target="_blank">SA-CORE-2014-005</a> est publié</li>
+                        <li class="fragment">Ce bulletin annonce une vulnérabilité par injection SQL de tous les sites Drupal 7</li>
+                        <li class="fragment">Cette faille de sécurité est jugée hautement critique. En bref, cette vulnérabilité permet à un attaquant anonyme de compromettre n'importe quel site Drupal 7</li>
+                        <li class="fragment">C'est la plus sérieuse faille de sécurité publiée depuis très longtemps, au moins depuis 9 ans.</li>
+                    </ul>
+				</section>
+
+                <section>
+                    <h2 class="center">Petit retour sur la chronologie de l'événement</h2>
+                </section>
+
+                <section data-transition="linear" data-background-image="images/retour-vers-le-futur.jpg" data-background-transition="slide">
+                </section>
+
+				<section>
+                    <h2>Découverte</h2>
+
+                    <ul>
+                        <li class="fragment">Découverte de la vulnérabilité par la société Sektion Eins lors d'un audit sécurité le 18/09 environ</li>
+                        <li class="fragment">Saisie de la Security Team</li>
+                    </ul>
+
+				</section>
+
+                <section>
+                    <h2>Préparation</h2>
+                    <ul>
+                        <li class="fragment">Correction de la vulnérabilité</li>
+                        <li class="fragment">Choix d'une fenêtre de tir optimal pour la publication du bulletin de sécurité (DrupalCon)</li>
+                        <li class="fragment">Une publication prématurée n'aurait pas permis aux drupaliens présents à la DrupalCon de réagir à la juste mesure</li>
+
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Communication</h2>
+                    <p>Dès le 10 octobre</p>
+                    <img src="images/drupal_security_10102014.jpg" alt="Tweet de la security team du 10/10/2014">
+                </section>
+
+                <section>
+                    <h2>Communication</h2>
+                    <p>Le 14 octobre, nous sommes clairement prévenus d'être prêt pour le lendemain</p>
+                    <img src="images/drupal_security_14102014.jpg" alt="Tweet de la security team du 14/10/2014">
+                    <p>Très inhabituel</p>
+                </section>
+
+
+
+                <section>
+                    <h2>Publication</h2>
+                    <p>Le 15 octobre, publication de la vulnérabilité</p>
+                    <img src="images/drupal_security_15102014.jpg" alt="Tweet de la security team du 15/10/2014">
+                </section>
+
+                <section data-transition="linear" data-background-image="images/armageddon.jpg" data-background-transition="slide">
+                </section>
+
+                <section>
+                    <h2>Urgence : se protéger</h2>
+                    <ul>
+                        <li class="fragment">Soit migrer vers la version 7.32</li>
+                        <li class="fragment">Soit appliquer le patch fourni (1 ligne de code)</li>
+                        <li class="fragment">A noter que ce patch permet de protéger toutes les versions de Drupal 7 en quelques secondes</li>
+                    </ul>
+                    <br /><br />
+                    <pre class="fragment"><code>curl https://www.drupal.org/files/issues/SA-CORE-2014-005-D7.patch | patch -p1</code></pre>
+                </section>
+
+                <section>
+                    <h2>Quelques enseignements</h2>
+                </section>
+
+                <section>
+                    <h2>Le mythe de la sécurité</h2>
+                    <ul>
+                        <li class="fragment">Heartblead, ShellShock, Java, Windows, Wordpress doivent vous évoquer des souvenirs ?</li>
+                        <li class="fragment">Vous connaissez un logiciel infaillible ?</li>
+                    </ul>
+                </section>
+
+                <section data-transition="linear" data-background-image="images/pong.jpg" data-background-transition="slide">
+                    <h2>A part Pong ?</h2>
+                </section>
+
+                <section>
+                    <h2>Le mythe de la sécurité</h2>
+                    <ul>
+                        <li class="fragment">Le risque zéro n'existe pas</li>
+                        <li class="fragment">La sécurité n'est pas un dogme, un état binaire oui / non... </li>
+                        <li class="fragment">...mais avant tout un <strong>processus continue d'amélioration.</strong> </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Evolution des vulnérabilités</h2>
+                    <img src="images/drupal_vulnerabilities_types.png" alt="Types de vulnerabilités de Drupal au fil des années">
+                    <small>L'utilisation de Drupal par des organisations gouvernementales (Maison blanche, Gouvernement Français, etc.)
+                        démontre juste que Drupal est loin d'être le dernier dans le domaine de la sécurité.</small>
+                </section>
+
+                <section>
+                    <h2>Le plus important n'est pas de savoir si Drupal est sécurisé</h2>
+                </section>
+
+                <section>
+                    <h2>Mais</h2>
+                </section>
+
+                <section>
+                    <h2>Comment Drupal gère la sécurité et son niveau de maturité</h2>
+                    <p>Enjeu majeur pour toute solution open source<br />
+                        (<a href="https://managewp.com/solve-wordpress-security" target="_blank">lettre ouverte à la communauté wordpress</a>)
+                    </p>
+                </section>
+
+                <section>
+                    <h2>La gestion de la sécurité</h2>
+                    <ul>
+                        <li class="fragment">Organsation dédiée : Security Team, protocoles, planning</li>
+
+                        <li class="fragment">Un volet technique / un volet organisationnel : règle fondamentale de toute politique de sécurité</li>
+                        <li class="fragment">La sensibilisation des utilisateurs (exemple de la publication de la faille dans une <a href="https://www.drupal.org/node/2146839" target="_blank">issue publique</a>)</li>
+                        <li class="fragment">Un esprit d'amélioration continue : faire en sorte qu'une erreur ne puisse plus se reproduire :
+                            <a href="https://www.drupal.org/node/2358373" target="_blank">Improve clarity of the reporting security issues warning</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Drupalgeddon a permis de démontrer comment Drupal gère sa sécurité</h2>
+                    <ul>
+                        <li class="fragment">avec sérénité</li>
+                        <li class="fragment">avec une organisation bien rodée : maturité</li>
+                        <li class="fragment">avec responsabilité : quoi faire après</li>
+                    </ul>
+                </section>
+
+
+                 <section>
+                    <h2>Drupal plus fort</h2>
+                    <ul>
+                        <li class="fragment">De part sa présence de plus en plus prédominante au sein de grands groupes, administrations </li>
+                        <li class="fragment">Drupal fait l'objet d'audit sécurité de plus en plus avancés</li>
+                        <li class="fragment">Qui au final le renforce sur cet aspect</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Et après #drupalgeddon</h2>
+                    <ul>
+                        <li class="fragment"><a href="https://www.drupal.org/PSA-2014-003" target="_blank">Drupal Core PSA-2014-003</a> : Annonce publique du 29/10/2014</li>
+                        <li class="fragment">Premières vagues d'attaques constatées 7 heures après la publication de la faille</li>
+                        <li class="fragment">Boucliers préventifs déployés sur les plateformes d'hébergement spécialisées</li>
+                        <li class="fragment">Un site Drupal peut être "considéré" comme compromis s'il n'a pas été protégé avant 23h00 le 15/10</li>
+                    </ul>
+                </section>
+
+				<section>
+					<h2>Quelques outils</h2>
+                    <ul>
+                        <li class="fragment">Le site a-t-il été patché à votre insu ?</li>
+                        <li class="fragment"><a href="https://www.drupal.org/project/site_audit" target="_blank">Site Audit</a> et
+                            <a href="https://www.drupal.org/project/drupalgeddon" target="_blank">Drupalgeddon</a> pour détecter les vecteurs d'attaques connus</li>
+                        <li class="fragment">A noter que le respect des <a href="https://www.drupal.org/node/244924" target="_blank">pratiques recommandés au niveau du serveur web</a>
+                            permet de se protéger d'une bonne part des attaques (les plus compliquées à détecter surtout sans git)</li>
+                        <li class="fragment">Git pour détecter les modifications de fichiers</li>
+                        <li class="fragment">Une méthode radicale : une restauration antérieur au 15/10</li>
+                    </ul>
+				</section>
+
+                <section>
+                    <h2>Quelques ressources</h2>
+                    <ul>
+                        <li class="fragment"><a href="https://www.drupal.org/node/2357241" target="_blank">La FAQ officielle</a> et ses commentaires</li>
+                        <li class="fragment"><a href="https://github.com/greggles/cracking-drupal/blob/master/after-an-exploit.md" target="_blank">Votre site Drupal a été hacké ? Quoi faire maintenant</a></li>
+                        <li class="fragment"><a href="https://modulesunraveled.com/blog/how-restore-your-hacked-site" target="_blank">Comment restaurer votre site hacké</a></li>
+                        <li class="fragment"><a href="http://flocondetoile.fr/blog/drupal-sa-core-2014-005-mise-en-perspective-et-enseignements" target="_blank">Drupal SA-CORE-2014-005, mise en perspective et enseignements</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Des questions ?</h2>
+                </section>
+
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
